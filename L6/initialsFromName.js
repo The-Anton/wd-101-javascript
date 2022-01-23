@@ -6,15 +6,16 @@
 */
 
 let createInitialsFromName = (name) => {
-  let wordSize = name.split(" ");
+  let words = name.split(" ");
+  let wordSize = words.length;
   let initials = "";
 
   if(wordSize == 1) {
-    initials = wordSize.at(0).slice(0,1);
+    initials = words[0].slice(0,2);
   }else if(wordSize == 2) {
-    initials = wordSize.at(0).slice(0,1) + wordSize.at(1).slice(0,1);
+    initials = words[0].slice(0,1) + words[1].slice(0,1);
   }else {
-    initials = wordSize.at(0).slice(0,1) + wordSize.at(wordSize.length-1).slice(0,1);
+    initials = words[0].slice(0,1) + words[wordSize-1].slice(0,1);
   }
 
   return initials.toUpperCase();
